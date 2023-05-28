@@ -1,0 +1,12 @@
+# Apache NetBeans Project Files
+nbproject/private/
+nbproject/
+
+# NetBeans-specific build files
+build/
+
+# Exclude log files
+/logs/
+
+# User files
+/userfiles/
