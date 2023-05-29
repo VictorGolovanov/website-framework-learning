@@ -11,7 +11,7 @@ namespace core\base\controller;
  * It also handles plugins by dynamically loading their routes and settings if the URL corresponds to a plugin route.
  * The class uses the Settings class to retrieve the application's route configurations.
  * If the URL doesn't match any defined routes, it throws an exception.
- *
+ * 
  * @author victor
  */
 
@@ -63,9 +63,10 @@ class RouteController {
                 throw new RouteException('Something went wrong');
             }
             
-            if (strrpos($adress_str, $this->routes['admin']['alias']) === strlen(PATH)) {
-                
-                $url = explode('/', substr($adress_str, strlen(PATH . $this->routes['admin']['alias']) + 1));
+            $url = explode('/', substr($adress_str, strlen(PATH)));
+            
+            if ($url[0] && $url[0] === $this->routes['admin']['alias']) {
+                array_shift($url);
                 
                 // plugins
                 if ($url[0] && $this->isDir($url)) {
@@ -91,8 +92,7 @@ class RouteController {
                 }
                 
             } else {
-                // user part
-                $url = explode('/', substr($adress_str, strlen(PATH)));
+//                $url = explode('/', substr($adress_str, strlen(PATH)));
                 $hrUrl = $this->routes['user']['hrUrl'];
                 $this->controller = $this->routes['user']['path'];
                 
@@ -113,7 +113,7 @@ class RouteController {
                 }
                 
                 for (; $i < $count; $i++) {
-                    if (!$key) {
+                    if (!$key && array_key_exists($i, $url)) {
                         $key = $url[$i];
                         $this->parameters[$key] = '';
                     } else {
