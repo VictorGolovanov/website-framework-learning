@@ -16,11 +16,13 @@ class ShopSettings {
     private $baseSettings;
 
     private $routes = [
-        'admin' => [
-            'alias' => 'sudo',
-        ],
-        'test' => [
-            'name' => 'test'
+        'plugins' => [
+            'path' => 'core/plugins/',
+            'hrUrl' => false,
+            'dir' => 'controller',
+            'routes' => [
+                'product' => 'goods'
+            ]
         ],
     ];
 
