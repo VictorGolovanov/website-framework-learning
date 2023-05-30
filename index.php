@@ -19,5 +19,5 @@ echo "Hello!\n";
 try {
     RouteController::getInstance()->route();
 } catch (RouteException $e) {
-    exit($e->getMessage());
+    echo($e->getMessage());
 }

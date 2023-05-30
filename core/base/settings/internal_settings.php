@@ -35,9 +35,7 @@ spl_autoload_register(function ($className) {
     $filePath = str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
 
     // check if file exists
-    if (file_exists($filePath)) {
-        if (!include_once $filePath) {
-            throw new RouteException("Wrong class name: $className");
-        }
+    if (!@include_once $filePath) {
+        throw new RouteException("Wrong class name: $className");
     }
 });

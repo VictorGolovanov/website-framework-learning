@@ -19,18 +19,13 @@ use core\base\settings\Settings;
 use core\base\settings\ShopSettings;
 
 
-class RouteController {
+class RouteController extends BaseController {
     
     private static $_instance;
     
     protected $routes;
+
     
-    protected $controller;
-    protected $inputMethod;
-    protected $outputMethod;
-    protected $parameters;
-
-
     private function __clone() {
         //
     }
@@ -122,7 +117,7 @@ class RouteController {
                     }
                 }
             }
-            var_dump(printArr($this));
+//            var_dump(printArr($this));
         } else {
             try {
                 throw \Exception('wrong directory');
