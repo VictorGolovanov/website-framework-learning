@@ -11,5 +11,10 @@ namespace core\user\controller;
 use core\base\controller\BaseController;
 
 class IndexController extends BaseController{
-    //put your code here
+    
+    protected function hello() {
+        var_dump("Hello method hello() is called!");
+        $template = $this->render('', ['name' => 'Felix']);
+        exit($template);
+    }
 }

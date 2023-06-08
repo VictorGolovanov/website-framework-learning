@@ -18,7 +18,7 @@ namespace core\base\settings;
  * @see core\base\settings\Settings::getInstance()
  * @see core\base\settings\Settings::get()
  * @see core\base\settings\Settings::clueProperties()
- * @see libraries\functions::arrayMergeRecursive()
+ * @see libraries\functions::arrayMergeRecursive() 
  *
  *  @author victor
  */
@@ -49,7 +49,10 @@ class Settings {
             'hrUrl' => true,
             'routes' => [
                 //controller/method-data-collection/method-data-output
-                'catalog' => 'site/hello/bye'
+                'catalog' => 'site/hello/bye',
+                'site' => 'index/hello',
+                'site2' => 'banzai/lalala',
+                'site3' => 'hahaha/trololo'
             ]
         ],
         'default' => [
@@ -90,7 +93,7 @@ class Settings {
             
             if (!$property) {
                 $baseProperties[$name] = $this->$name;
-            }
+            } 
         }
         return $baseProperties;
     }    
